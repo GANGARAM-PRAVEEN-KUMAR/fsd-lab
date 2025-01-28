@@ -1,0 +1,51 @@
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Info</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+    }
+    .weather-container {
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        margin: 0 auto;
+    }
+    .weather-container h2 {
+        margin: 0 0 10px;
+    }
+    .weather-details {
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+
+<script>
+    
+   async function setusers(){
+    try{
+    let rawdata=await fetch("https://api.openweathermap.org/data/2.5/weather?q=hyderabad&units=metric&appid=3291aad5e106590f2f04ded251ba64c0")
+    let data=await rawdata.json()
+
+    
+        let {temp,humidity,temp_max,temp_min}=data.main
+
+        console.log(temp,humidity,temp_max,temp_min)
+
+    }catch(err){
+        console.log(err)
+    }
+
+   } 
+
+   setusers()
+</script>
+
+</body>
+</html>
